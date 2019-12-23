@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
@@ -12,119 +12,7 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/add_editEmployee.css">	
 <link rel="stylesheet" type="text/css" href="/resources/css/w3.css">	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript">
-function validate(){
-  if(document.getElementById('name').value ==''){
-   document.getElementById('name').focus();
-   document.getElementById('name_error').innerHTML = 'Please enter employee name';
-    return false;
-  }
-  if(!isNaN(document.getElementById('name').value)){
-    document.getElementById('name_error').innerHTML = 'Please enter only alphabate';
-  document.getElementById('name').focus();
-    return false;
-  }document.getElementById('name_error').innerHTML = '';
-  if(document.getElementById('date').value ==''){
-   document.getElementById('date').focus();
-   document.getElementById('date_error').innerHTML = 'Please enter  Date of Birth';
-    return false;
-  }document.getElementById('date_error').innerHTML = '';
-if(document.getElementById('gender').value ==''){
-   document.getElementById('gender').focus();
-   document.getElementById('gender_error').innerHTML = 'Please select gender';
-    return false;
-  }document.getElementById('gender_error').innerHTML = '';
-if(document.getElementById('email').value == ''){
-   document.getElementById('email_error').innerHTML = 'Please enter  email id';
-    document.getElementById('email').focus();
-    return false;
-  }
-  if(document.getElementById('email').value != ''){
-    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,6})+$/.test(document.getElementById('email').value))
-      {
-          document.getElementById('email_error').innerHTML = 'Please enter  valid email id';
-      document.getElementById('email').focus();
-      return (false)
-      }
-  }document.getElementById('email_error').innerHTML = '';
-  if(document.getElementById('password').value == ''){
-    document.getElementById('password_error').innerHTML = 'Please enter  Password';
-    document.getElementById('password').focus();
-    return false;
-  }
- 
-  if(document.getElementById('password').value != ''){
-    if (!/^.*(?=.{6,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).*$/.test(document.getElementById('password').value))
-      {
-      document.getElementById('password_error').innerHTML = 'password must contain atleast one Capital letter,one special character,numeric value';
-      document.getElementById('password').focus();
-      return (false)
-      }
-  }document.getElementById('password_error').innerHTML = '';
-if(document.getElementById('con_password').value == ''){
-    document.getElementById('conpassword_error').innerHTML = 'Please confirm your Password';
-    document.getElementById('con_password').focus();
-    return false;
-  }
 
-  if(document.getElementById('con_password').value !=document.getElementById('password').value){
-    document.getElementById('conpassword_error').innerHTML = 'confirm password does not matched';
-      document.getElementById('con_password').focus();
-      return (false)
-  }document.getElementById('conpassword_error').innerHTML = '';
-  if(document.getElementById('contact').value==''){
-   document.getElementById('contact_error').innerHTML = 'Please enter employee contact number';      
-    document.getElementById('contact').focus();    
-    return false;    
-  }
-if(document.getElementById('contact').value != ''){
-    if(document.getElementById('contact').value.length <10){
-    document.getElementById('contact_error').innerHTML = 'Please enter  10 digit contat number';
-    document.getElementById('contact').focus();
-    return false;
-    }
-    }document.getElementById('contact_error').innerHTML = '';
-    if(document.getElementById('address').value ==''){
-   document.getElementById('address').focus();
-   document.getElementById('address_error').innerHTML = 'Please enter employee Address';
-    return false;
-  }document.getElementById('address_error').innerHTML = '';
-    if(document.getElementById('city').value ==''){
-   document.getElementById('city').focus();
-   document.getElementById('city_error').innerHTML = 'Please enter employee City';
-    return false;
-  }document.getElementById('city_error').innerHTML = '';
-    if(document.getElementById('state').value ==''){
-   document.getElementById('state').focus();
-   document.getElementById('state_error').innerHTML = 'Please enter employee State';
-    return false;
-  }
-document.getElementById('state_error').innerHTML = '';
-    if(document.getElementById('pincode').value ==''){
-   document.getElementById('pincode').focus();
-   document.getElementById('pincode_error').innerHTML = 'Please enter employee Pincode';
-    return false;
-  }
-
-    if(document.getElementById('doj').value == ''){
-        document.getElementById('doj_error').innerHTML = 'Please seltec the date';
-        document.getElementById('doj').focus();
-        return false;
-      }
-     
-   /*   if(document.getElementById('doj').value != ''){
-        if (!/[0-9]{2}[-|\/]{1}[0-9]{2}[-|\/]{1}[0-9]{4}/.test(document.getElementById('doj').value))
-          {
-          document.getElementById('doj_error').innerHTML = 'date must be in DD-MM-YYYY formate';
-          document.getElementById('doj').focus();
-          return (false)
-          }
-      }document.getElementById('doj_error').innerHTML = '';
-*/
-
-}
-
-</script>
 </head>
 <body>
 <div>
@@ -139,7 +27,7 @@ document.getElementById('state_error').innerHTML = '';
 
 <div class="main">
   <h3>Details</h3>
-  <form  action="saveEmployee" method="POST" id="userlogin" onsubmit="return validate()">
+  <form  action="saveEmployee" method="POST" id="userlogin" >
  <div class="w3-row-padding">
   <div class="w3-half">
   
@@ -201,7 +89,7 @@ document.getElementById('state_error').innerHTML = '';
     <div id="doj_error" style="color:red;"></div>
     <br>
        
-    <input class="w3-input w3-border" type="hidden" name="com_id" id="companyId" value="${id}" >
+    <input class="w3-input w3-border" type="hidden" name="com_id" id="id"  >
     <br>
      
   
@@ -215,6 +103,7 @@ document.getElementById('state_error').innerHTML = '';
 
 </div>
 </div>
+<script src="/resources/js/validation/addEmployeeValidation.js"></script>
  <script src="/resources/js/company_intro.js"></script>
 <%@include file="/resources/side/admin_sidebar.jsp" %>
 </body>

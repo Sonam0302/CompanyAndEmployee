@@ -39,7 +39,7 @@
       		<ul>
       		    <li>Employee</li>
       		    <li style="float: right"><button class="btn default" onclick="myFunction()">Download List</button></li>
-      	<!--  	     ${sessionScope.email }   -->
+      	
      </ul>
       	<table id="example"class="display" style="width:100%" >
 				<thead>
@@ -73,59 +73,9 @@
   
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script type=>
-$(document).ready(function() {
-    $('#example').DataTable({
-    	"processing": true,
-        "serverSide": true,
-        "bLengthChange": false,
-     	"ajax":{
-   			"data": function(){
-     		      var info = $('#example').DataTable().page.info();
-			
-     		      $('#example').DataTable().ajax.url(
-     		          "employeePagination/"+(info.page + 1)+"/"+10
-     		      );
-     		   },
-	      	},
-         "columns": [
-        	 
- 			{ "data": "id" },
- 			{ "data": "name" },
- 			{ "data": "email"},
- 			{ "data": "contact_no" },
- 			{  
-                "title": "edit",  
-                "data": "id",  
-                "searchable": false,  
-                "sortable": false,  
-                "render": function (data, type, full, meta) {  
-                    return '<a href="/company/edit?id=' + data + '">Edit</a>';  
-                } ,
- 			},
- 			{  
-                "title": "delete",  
-                "data": "id",  
-                "searchable": false,  
-                "sortable": false,  
-                "render": function (data, type, full, meta) {  
-                    return '<a href="/company/delete/' + data + '">Delete</a>';  
-                } ,
- 			}	
- 			
- 		],
- 		"paging":true,
-        "pageLength":10,
-        "ordering":true,
-        "order":[0,"asc"]
-           
-    });
-   
-} );
-
-</script>
+<script src="/resources/js/datatable/jquery-3.3.1.js"></script>
+<script src="/resources/js/datatable/jquery.dataTables.min.js"></script>
+<script src="/resources/js/datatable/pagination.js"></script>
  <script src="/resources/js/company_intro.js"></script>
 <%@include file="/resources/side/admin_sidebar.jsp" %>
 </body>

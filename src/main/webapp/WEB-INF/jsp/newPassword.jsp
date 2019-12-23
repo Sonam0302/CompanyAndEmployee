@@ -11,52 +11,7 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/intro.css">	
 <link rel="stylesheet" type="text/css" href="/resources/css/w3.css">	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript">
-function validate(){
-	 if(document.getElementById('password_old').value == ''){
-		    document.getElementById('passwordold_error').innerHTML = 'Please enter  Password';
-		    document.getElementById('password_old').focus();
-		    return false;
-		  }
-		 
-		  if(document.getElementById('password_old').value != ''){
-		    if (!/^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,}).*$/.test(document.getElementById('password_old').value))
-		      {
-		      document.getElementById('passwordold_error').innerHTML = 'password must contain atleast one Capital letter,one special character,numeric value';
-		      document.getElementById('password_old').focus();
-		      return (false)
-		      }
-		  }document.getElementById('passwordold_error').innerHTML = '';
-		 
-		  if(document.getElementById('password').value == ''){
-		    document.getElementById('password_error').innerHTML = 'Please enter  Password';
-		    document.getElementById('password').focus();
-		    return false;
-		  }
-		 
-		  if(document.getElementById('password').value != ''){
-			  if (!/^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,}).*$/.test(document.getElementById('password').value))
-		      {
-		      document.getElementById('password_error').innerHTML = 'password must contain atleast one Capital letter,one special character,numeric value';
-		      document.getElementById('password').focus();
-		      return (false)
-		      }
-		  }document.getElementById('password_error').innerHTML = '';
-		if(document.getElementById('con_password').value == ''){
-		    document.getElementById('conpassword_error').innerHTML = 'Please confirm your Password';
-		    document.getElementById('con_password').focus();
-		    return false;
-		  }
-
-		  if(document.getElementById('con_password').value !=document.getElementById('password').value){
-		    document.getElementById('conpassword_error').innerHTML = 'confirm password does not matched';
-		      document.getElementById('con_password').focus();
-		      return (false)
-		  }document.getElementById('conpassword_error').innerHTML = '';
-		 
-}
-
-</script>
+  
 </head>
 <body>
 <div>
@@ -71,18 +26,18 @@ function validate(){
 
 <div class="main">
   <h3>Details</h3>
-  <form  action="updatePassword" method="POST" id="userlogin" onsubmit="return validate()">
+  <form  action="updatePassword" method="POST" id="userlogin">
    <label>Old Password</label>
     <input class="w3-input w3-border" type="password" name="com_pass_old" id="password_old">
     <div id="passwordold_error" style="color:red;"></div>
     <br>
   
     <label>Password</label>
-    <input class="w3-input w3-border" type="password" name="com_pass" id="password">
+    <input class="w3-input w3-border" type="password" name="com_pass" id="password" >
     <div id="password_error" style="color:red;"></div>
     <br>
      <label>Confirm Password</label>
-    <input class="w3-input w3-border" type="password" id="con_password">
+    <input class="w3-input w3-border" type="password" id="con_password" >
     <div id="conpassword_error" style="color:red;"></div>
     <br>
     
@@ -98,12 +53,12 @@ function validate(){
   </form>
 
   </div>
-  
+
   
 </div>
 
+<script src="/resources/js/validation/newPasswordValidation.js"></script>
 
- <script src="/resources/js/company_intro.js"></script>
 <%@include file="/resources/side/admin_sidebar.jsp" %>
 
 </body>
